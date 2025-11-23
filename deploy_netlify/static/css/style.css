@@ -398,6 +398,24 @@ footer {
   height: 100%;
   border: 0;
 }
+/* ============================================
+   CONTRASTE MELHOR EM FUNDOS VINHO (MOBILE/PC)
+   ============================================ */
+
+/* Blocos de destaque (Bem-vindo, Presença que faz a diferença, etc.) */
+.destaque-caixa h3,
+.destaque-caixa p {
+  color: #ffffff !important;
+}
+
+/* Seções de Contato e Localização */
+#contatos h3,
+#contatos p,
+#mapa h3,
+#mapa p {
+  color: #ffffff !important;
+}
+
 /* Responsivo */
 @media (max-width: 768px) {
     .destaque-antiga {
