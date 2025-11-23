@@ -45,7 +45,7 @@ h1, h2, h3, .titulo-elegante {
 .titulo {
   font-family:'Playfair Display',Georgia,'Times New Roman',serif;
   letter-spacing:3px;
-  color:var(--branco);
+  color:var(--bordo);
   font-weight:1000;
   margin-bottom:1rem;
 }
@@ -347,15 +347,15 @@ footer {
   max-width: 1100px;
   width: 100%;
   margin-inline: 2.5rem;       /* respiro das bordas */
-  background: var(--bordo);
+  background: var(--branco);
   border-radius: 24px;
   padding: 2.5rem 3rem;
-  color: var(--branco);
+  color: var(--bordo);
   box-shadow: var(--sombra);
 }
 
 .destaque-caixa h3 {
-  color: #ffffff;
+  color: var(--bordo);
   margin-bottom: 0.75rem;
 }
 /* Imagens dos blocos (efeito de profundidade no hover) */
