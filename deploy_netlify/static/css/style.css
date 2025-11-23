@@ -415,7 +415,44 @@ footer {
 #mapa p {
   color: #ffffff !important;
 }
+/* ===================================================================
+   CORREÇÃO DE CONTRASTE EM FUNDO VINHO – TITULOS E PARÁGRAFOS
+   =================================================================== */
 
+/* Qualquer título, texto ou parágrafo dentro de blocos vinho */
+.bg-home h1,
+.bg-home h2,
+.bg-home h3,
+.bg-home h4,
+.bg-home h5,
+.bg-home p,
+.bg-home span,
+.bg-home small {
+    color: #ffffff !important;
+}
+
+/* Títulos das seções específicas */
+#mapa h3,
+#mapa p {
+    color: #ffffff !important;
+}
+
+#contatos h3,
+#contatos p {
+    color: #ffffff !important;
+}
+
+/* Seções de destaque (faixas vinho) */
+.destaque-faixa h3,
+.destaque-faixa p {
+    color: #ffffff !important;
+}
+
+/* Títulos personalizados */
+.titulo,
+.titulo-elegante {
+    color: #ffffff !important;
+}
 /* Responsivo */
 @media (max-width: 768px) {
     .destaque-antiga {
