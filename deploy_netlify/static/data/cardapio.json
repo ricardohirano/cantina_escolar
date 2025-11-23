@@ -1,0 +1,68 @@
+{
+  "categorias": [
+    {
+      "nome": "Bebidas",
+      "produtos": [
+        { "nome": "Água Mineral", "descricao": "Garrafa 500 ml", "preco": 3.0, "imagem": "static/foto_prod/bebidas/1.png" },
+        { "nome": "Coca-Cola Mini", "descricao": "Garrafa 200 ml", "preco": 3.0, "imagem": "static/foto_prod/bebidas/2.png" },
+        { "nome": "Coca-Cola", "descricao": "Garrafa 600 ml", "preco": 8.0, "imagem": "static/foto_prod/bebidas/3.png" },
+        { "nome": "Refrigerante Mini Lata", "descricao": "220 ml · Sabores variados", "preco": 4.0, "imagem": "static/foto_prod/bebidas/4.png" },
+        { "nome": "Refrigerante Lata", "descricao": "350 ml · Sabores variados", "preco": 6.0, "imagem": "static/foto_prod/bebidas/5.png" },
+        { "nome": "Refrigerante 2L", "descricao": "Sabores variados", "preco": 14.0, "imagem": "static/foto_prod/bebidas/6.png" },
+        { "nome": "Pira Kids Achocolatado", "descricao": "200 ml", "preco": 5.0, "imagem": "static/foto_prod/bebidas/7.png" },
+        { "nome": "Del Valle Garrafa", "descricao": "450 ml · Sabores variados", "preco": 5.0, "imagem": "static/foto_prod/bebidas/8.png" },
+        { "nome": "Chá Mate Leão", "descricao": "Garrafa pequena", "preco": 6.0, "imagem": "static/foto_prod/bebidas/9.png" },
+        { "nome": "Del Valle Kapo", "descricao": "Unidade", "preco": 6.0, "imagem": "static/foto_prod/bebidas/10.png" }
+      ]
+    },
+    {
+      "nome": "Sobremesas",
+      "produtos": []
+    },
+    {
+      "nome": "Salgados",
+      "produtos": [
+        { "nome": "Coxinha", "descricao": "Coxinha de frango", "preco": 7.0, "imagem": "static/foto_prod/salgados/1.png" },
+        { "nome": "Esfiha", "descricao": "Carne ou frango", "preco": 8.0, "imagem": "static/foto_prod/salgados/2.png" },
+        { "nome": "Mistinho", "descricao": "Queijo + presunto", "preco": 8.0, "imagem": "static/foto_prod/salgados/3.png" },
+        { "nome": "Maravilha", "descricao": "Assado especial da cantina", "preco": 8.0, "imagem": "static/foto_prod/salgados/4.png" },
+        { "nome": "Pão de Queijo G", "descricao": "Grande Unidade", "preco": 3.0, "imagem": "static/foto_prod/salgados/6.png" },
+        { "nome": "Bolinho de Salsicha", "descricao": "Salgado com salsicha e temperos", "preco": 8.0, "imagem": "static/foto_prod/salgados/7.png" },
+        { "nome": "Empada", "descricao": "Empada recheada Diversos Sabores", "preco": 8.0, "imagem": "static/foto_prod/salgados/8.png" },
+        { "nome": "Quibe", "descricao": "Recheado com carne e queijo", "preco": 7.0, "imagem": "static/foto_prod/salgados/9.png" }
+      ]
+    },
+    {
+      "nome": "Refeicoes",
+      "produtos": [
+        { "nome": "Bife Acebolado", "descricao": "Prato Feito  Arroz, feijão, fritas e salada", "preco": 20.0, "imagem": "static/foto_prod/refeições/1.png" },
+        { "nome": "Carne de Panela", "descricao": "Prato Feito  Arroz, feijão, fritas e salada", "preco": 20.0, "imagem": "static/foto_prod/refeições/2.png" },
+        { "nome": "Bisteca", "descricao": "Prato Feito  Arroz, feijão, fritas e salada", "preco": 20.0, "imagem": "static/foto_prod/refeições/3.png" },
+        { "nome": "Filé de Peixe", "descricao": "Prato Feito  Arroz, feijão, fritas e salada", "preco": 20.0, "imagem": "static/foto_prod/refeições/4.png" },
+        { "nome": "Frango à Milanesa", "descricao": "Prato Feito  Arroz, feijão, fritas e salada", "preco": 20.0, "imagem": "static/foto_prod/refeições/5.png" },
+        { "nome": "Parmegiana de Frango", "descricao": "Prato Feito Arroz e fritas", "preco": 20.0, "imagem": "static/foto_prod/refeições/6.png" },
+        { "nome": "Feijoada PF", "descricao": "Prato Feito Feijoada, arroz, couve, torresmo", "preco": 20.0, "imagem": "static/foto_prod/refeições/7.png" },
+        { "nome": "Feijoada Completa", "descricao": "Executivo Arroz, feijoada, couve, torresmo", "preco": 25.0, "imagem": "static/foto_prod/refeições/8.png" }
+      ]
+    },
+    {
+      "nome": "Sorvetes",
+      "produtos": []
+    },
+    {
+      "nome": "Outros",
+      "produtos": [
+        { "nome": "Halls", "descricao": "Diversos sabores variados", "preco": 2.5, "imagem": "static/foto_prod/outros/1.png" },
+        { "nome": "Trident", "descricao": "Diversos sabores variados", "preco": 4.5, "imagem": "static/foto_prod/outros/2.png" },
+        { "nome": "Mentos", "descricao": "Diversos sabores variados", "preco": 4.0, "imagem": "static/foto_prod/outros/3.png" },
+        { "nome": "Tic Tac", "descricao": "Diversos sabores variados", "preco": 3.5, "imagem": "static/foto_prod/outros/4.png" },
+        { "nome": "Diamante Negro", "descricao": "Chocolate Unidade", "preco": 3.5, "imagem": "static/foto_prod/outros/5.png" },
+        { "nome": "Prestígio", "descricao": "Chocolate Unidade", "preco": 4.0, "imagem": "static/foto_prod/outros/6.png" },
+        { "nome": "Chokito", "descricao": "Chocolate Unidade", "preco": 4.0, "imagem": "static/foto_prod/outros/7.png" },
+        { "nome": "Laka", "descricao": "Chocolate Unidade", "preco": 4.0, "imagem": "static/foto_prod/outros/8.png" },
+        { "nome": "Snickers", "descricao": "Chocolate Unidade", "preco": 6.0, "imagem": "static/foto_prod/outros/9.png" },
+        { "nome": "Paçoca Amor", "descricao": "Unidade", "preco": 1.5, "imagem": "static/foto_prod/outros/10.png" }
+      ]
+    }
+  ]
+}

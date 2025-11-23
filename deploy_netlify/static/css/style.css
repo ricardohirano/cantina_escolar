@@ -1,0 +1,413 @@
+/* ======================================================
+   CANTINA SENAI REGISTRO — ESTILOS GERAIS (VERSÃO FINAL)
+   Compat: Cardápio e Página Sobre (full-carousel)
+   ====================================================== */
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap');
+
+:root {
+  --vinho:#5A0004;
+  --bordo:#A41146;
+  --dourado:#D9A441;
+  --branco:#FFFFFF;
+  --cinza-100:#F7F7F7;
+  --cinza-300:#E6E6E6;
+  --cinza-600:#7A7A7A;
+  --preto:#1C1C1C;
+  --sombra:0 10px 24px rgba(0,0,0,.15);
+  --espacamento:1.25rem;
+  --raio:.6rem;
+}
+
+/* ============================ BASE ============================ */
+html, body {
+  font-family:'Montserrat',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--preto);
+  background:linear-gradient(180deg,var(--vinho) 0%,var(--bordo) 100%);
+  min-height:100vh;
+}
+a { color:var(--branco); text-decoration:none; }
+a:hover { color:var(--dourado); }
+
+/* ========================== TÍTULOS ========================== */
+h1, h2, h3, .titulo-elegante {
+  font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+  letter-spacing:.3px;
+  color:var(--bordo);
+}
+.titulo-elegante {
+  font-weight:600;
+  margin-bottom:1rem;
+}
+
+/* Título branco usado em faixas escuras */
+.titulo {
+  font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+  letter-spacing:3px;
+  color:var(--branco);
+  font-weight:1000;
+  margin-bottom:1rem;
+}
+
+/* =========================== NAVBAR ========================== */
+.navbar.bg-gradient-vinho {
+  background:var(--bordo) !important;
+  box-shadow:var(--sombra);
+  border-radius:0 !important;
+}
+.navbar .container,
+.navbar .container-fluid {
+  background:transparent !important;
+}
+.navbar .nav-link {
+  color:var(--branco) !important;
+  font-weight:500;
+}
+.navbar .nav-link.active,
+.navbar .nav-link:hover {
+  color:var(--dourado) !important;
+}
+.navbar-toggler { border-color:rgba(255,255,255,.5); }
+.navbar-toggler-icon {
+  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+/* Mapa ocupando toda largura disponível */
+/* Caixa do mapa centralizada e proporcional */
+.mapa-caixa {
+  width: 80%;            /* controla largura equilibrada */
+  max-width: 950px;      /* limite para não ficar gigante */
+  aspect-ratio: 16 / 8;  /* proporção parecida com a imagem que você mandou */
+  background: #fff;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+/* Iframe ocupando 100% da caixa */
+.mapa-caixa iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+
+/* ===================== CONTAINERS & CARDS ==================== */
+.container {
+  background:var(--cinza-100);
+  border-radius:var(--raio);
+  padding:var(--espacamento);
+  box-shadow:var(--sombra);
+  margin-top:2rem;
+}
+.card { border:none; border-radius:var(--raio); overflow:hidden; }
+.card-body { background:var(--branco); color:var(--preto); }
+.card-produto {
+  transition:transform .15s ease, box-shadow .15s ease;
+}
+.card-produto:hover {
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* ======================= LISTA DE PRODUTOS ====================== */
+#lista-cardapio {
+  background:var(--branco);
+  border:1px solid var(--cinza-300);
+  border-radius:var(--raio);
+  overflow:hidden;
+}
+.list-group-item {
+  border:0;
+  border-bottom:1px solid var(--cinza-300);
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding:14px 16px;
+  background:var(--branco);
+}
+.list-group-item:last-child { border-bottom:0; }
+.list-group-item .fw-semibold { font-weight:600; color:var(--preto); }
+.list-group-item .text-muted { color:var(--cinza-600) !important; }
+.preco {
+  font-weight:700;
+  color:var(--preto);
+  font-variant-numeric:tabular-nums;
+}
+
+/* ====================== CATEGORIAS ====================== */
+.categoria-titulo {
+  border-left:4px solid var(--bordo);
+  padding-left:.5rem;
+  color:var(--bordo);
+  font-weight:700;
+  margin-top:2rem !important;
+  margin-bottom:.5rem;
+}
+
+/* miniaturas */
+.thumb {
+  width:56px; height:56px; object-fit:cover;
+  border-radius:8px;
+  border:1px solid var(--cinza-300);
+  background:var(--cinza-100);
+}
+
+/* =========================== FORMULÁRIOS ====================== */
+.form-estilizada .form-label { font-weight:600; color:var(--bordo); }
+.form-estilizada .form-control,
+.form-estilizada .form-select {
+  border-radius:var(--raio);
+  border:1px solid var(--cinza-300);
+}
+.form-estilizada .form-control:focus,
+.form-estilizada .form-select:focus {
+  border-color:var(--bordo);
+  box-shadow:0 0 0 .2rem rgba(164,17,70,.2);
+}
+
+/* Botões */
+.btn-primary {
+  background:var(--bordo); border-color:var(--bordo); font-weight:600;
+}
+.btn-primary:hover {
+  background:var(--vinho); border-color:var(--vinho);
+}
+.btn-outline-secondary {
+  color:var(--bordo); border-color:var(--bordo);
+}
+.btn-outline-secondary:hover {
+  background:var(--bordo); color:var(--branco);
+}
+
+/* ============================ TABELAS ========================= */
+.table {
+  background:var(--branco);
+  border-radius:var(--raio);
+  overflow:hidden;
+}
+.table thead {
+  background:var(--cinza-100);
+  color:var(--bordo);
+  font-weight:600;
+}
+.table tbody tr:hover { background:#fafafa; }
+
+/* ============================ QR CODE ======================== */
+.qr-section {
+  text-align:center; margin-top:3rem;
+}
+.qr-section img {
+  width:150px; height:150px; object-fit:contain;
+  border:3px solid var(--cinza-300);
+  border-radius:var(--raio);
+  box-shadow:var(--sombra);
+}
+
+/* ===================== CARROSSEL FULL WIDTH =================== */
+.full-carousel {
+  width:100vw;
+  margin-left:50%;
+  transform:translateX(-50%);
+  border-radius:0;
+}
+.full-carousel .slide-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3600 / 2025;
+  overflow: hidden;
+}
+.full-carousel .slide-hero img {
+  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+}
+.full-carousel .slide-hero::after {
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg,rgba(0,0,0,.15) 0%, rgba(0,0,0,.45) 100%);
+}
+.full-carousel .hero-caption {
+  position:absolute; bottom:10%; left:50%; transform:translateX(-50%);
+  color:rgba(255,255,255,0.95);
+  text-align:center;
+  text-shadow:0 2px 10px rgba(0,0,0,.6);
+  z-index:1;
+}
+.full-carousel .hero-caption h2 {
+  font-weight:700;
+  font-size:clamp(1.6rem,3vw,2.2rem);
+  margin-bottom:.3rem;
+  color:rgba(255,255,255,0.95);
+}
+.full-carousel .hero-caption p {
+  font-size:clamp(1rem,2vw,1.3rem);
+  color:rgba(255,255,255,0.9);
+}
+
+/* ========================= RODAPÉ ======================== */
+footer {
+  background:var(--cinza-100);
+  border-top:1px solid var(--cinza-300);
+  color:var(--cinza-600);
+}
+
+/* ========================= RESPONSIVO ======================== */
+@media (max-width:768px) {
+  .container { padding:1rem; margin-top:1rem; }
+  .titulo-elegante { font-size:1.2rem; }
+  .list-group-item { flex-direction:column; align-items:flex-start; }
+  .preco { margin-top:.25rem; }
+  .full-carousel .slide-hero { aspect-ratio:16/10; }
+}
+
+/* Box estilizado como a navbar */
+.featurette-box {
+  background: linear-gradient(135deg, #6f1d24 0%, #8b1e2d 100%);
+  border-radius: 20px;
+  padding: 40px 30px;
+}
+
+/* Imagem da seção */
+.featurette-img {
+  max-width: 90%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Boxes antigas (se ainda forem usadas em alguma página) */
+.destaque-box {
+  background: #8a2a37;
+  color: white;
+  border-radius: 20px;
+}
+.destaque-box img {
+  max-height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* NOVO: fundo para os blocos full width do index */
+.bg-destaque {
+  background-color:#87303d;
+  color:#fff;
+}
+/* ---- SEÇÃO DE DESTAQUE (3 blocos) ---- */
+
+/* Caixa grande igual à navbar */
+.destaque-antiga {
+    background: var(--bordo);   /* mesma cor da navbar */
+    border-radius: 22px;
+    padding: 35px;
+    color: var(--branco);
+    max-width: 900px;          /* ocupa ~2/3 da tela */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Títulos dentro dos blocos */
+.destaque-antiga h3 {
+    color: var(--branco) !important;
+    font-weight: 700;
+}
+
+/* Texto */
+.destaque-antiga p {
+    color: #f2f2f2;
+    font-size: 1rem;
+}
+
+/* Imagens dos blocos */
+.destaque-antiga img {
+    width: 100%;
+    max-width: 240px;
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 170px;
+}
+
+/* Faixa de fundo dos destaques (ocupa toda a largura) */
+/* Faixa externa dos destaques (fora do container branco) */
+.destaque-faixa {
+  display: flex;
+  padding: 2.5rem 0;
+}
+
+/* alinhamentos possíveis */
+.destaque-faixa.left {
+  justify-content: flex-start;
+}
+
+.destaque-faixa.center {
+  justify-content: center;
+}
+
+.destaque-faixa.right {
+  justify-content: flex-end;   /* JOGA A CAIXA PRA DIREITA */
+}
+
+/* Caixa colorida */
+.destaque-caixa {
+  max-width: 1100px;
+  width: 100%;
+  margin-inline: 2.5rem;       /* respiro das bordas */
+  background: var(--bordo);
+  border-radius: 24px;
+  padding: 2.5rem 3rem;
+  color: var(--branco);
+  box-shadow: var(--sombra);
+}
+
+.destaque-caixa h3 {
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+/* Imagens dos blocos (efeito de profundidade no hover) */
+.destaque-caixa img {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transform-origin: center;
+  will-change: transform, box-shadow;
+}
+
+/* Ao passar o mouse */
+.destaque-caixa img:hover {
+  transform: translateY(-6px) scale(1.03);       /* sobe um pouco e aumenta */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);   /* sombra mais forte */
+}
+.bloco-direita {
+    max-width: 900px;        /* largura do bloco */
+    margin-left: auto;       /* empurra o bloco para a direita */
+    margin-right: 40px;      /* distância do canto direito */
+    background: var(--bordo);
+    border-radius: 20px;
+    padding: 40px 30px;
+    color: white;
+}
+
+/* Caixa do mapa (branca, centralizada, não ocupa 100%) */
+.mapa-caixa {
+  max-width: 1100px;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 24px;
+  overflow: hidden;   /* corta qualquer sobra interna */
+  background: #ffffff;
+  padding: 0;         /* garante que não tem espaço extra dentro */
+}
+
+/* Iframe ocupando 100% da caixa */
+.mapa-caixa iframe {
+  display: block;     /* remove espaço de linha embaixo do iframe */
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* Responsivo */
+@media (max-width: 768px) {
+    .destaque-antiga {
+        text-align: center;
+        padding: 25px;
+    }
+
+    .destaque-antiga img {
+        margin-top: 18px;
+        max-width: 200px;
+        max-height: 140px;
+    }
+}

@@ -1,0 +1,71 @@
+{% extends "partials/_base.html" %}
+{% block title %}Painel — Cantina Escolar{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="h4 mb-3 titulo-elegante">Painel de Controle</h1>
+
+  <div class="row g-3">
+    <!--Gerenciar produtos -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-3">Cardápio</h5>
+          <p class="text-muted small mb-3">
+            Adicione, edite ou remova os produtos exibidos no cardápio público.
+          </p>
+          <a href="{{ url_for('produto.listar') }}" class="btn btn-primary w-100">
+            Gerenciar Produtos
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!--Gerenciar usuários (somente admin) -->
+    {% if session.get('tipo') == 'admin' %}
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-3">Usuários</h5>
+          <p class="text-muted small mb-3">
+            Ative, desative ou promova moderadores.
+          </p>
+          <a href="{{ url_for('usuario.listar') }}" class="btn btn-primary w-100">
+            Gerenciar Usuários
+          </a>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <!--QR Code do cardápio -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card shadow-sm h-100">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-3">Divulgue o Cardápio</h5>
+          <p class="text-muted mb-2">
+            Escaneie o QR Code abaixo ou tire um print para compartilhar:
+          </p>
+          <img src="{{ url_for('static', filename=qr_code) }}"
+               alt="QR Code do Cardápio"
+               class="img-thumbnail mb-3"
+               style="max-width:200px;">
+          <div>
+            <a href="{{ url_for('cardapio.exibir_cardapio') }}" target="_blank"
+               class="btn btn-outline-primary btn-sm">
+              Abrir Cardápio Público
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão de logout -->
+  <div class="mt-4 text-center">
+    <a href="{{ url_for('home.logout') }}" class="btn btn-outline-danger">
+      Sair da Conta
+    </a>
+  </div>
+</div>
+{% endblock %}

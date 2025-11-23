@@ -1,0 +1,65 @@
+{% extends "partials/_base.html" %}
+{% block title %}Usuários — Cantina Escolar{% endblock %}
+
+{% block content %}
+<h1 class="h4 titulo-elegante mb-3">Usuários</h1>
+
+<div class="table-responsive">
+  <table class="table align-middle table-striped table-hover">
+    <thead class="table-light">
+      <tr>
+        <th style="width:64px;">ID</th>
+        <th>Nome</th>
+        <th>E-mail</th>
+        <th style="width:120px;">Tipo</th>
+        <th style="width:120px;">Ativo</th>
+        <th class="text-end" style="width:360px;">Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for u in usuarios %}
+      <tr>
+        <td>{{ u.id }}</td>
+        <td>{{ u.nome }}</td>
+        <td>{{ u.email }}</td>
+        <td>{{ u.tipo }}</td>
+        <td>
+          {% if u.ativo %}
+            <span class="badge bg-success">Sim</span>
+          {% else %}
+            <span class="badge bg-secondary">Não</span>
+          {% endif %}
+        </td>
+        <td class="text-end">
+          {% if not u.ativo %}
+            <!-- Ativar como ADMIN (fica ativo e tipo='admin') -->
+            <form class="d-inline" method="post" action="{{ url_for('usuario.ativar', usuario_id=u.id) }}">
+              <button class="btn btn-sm btn-outline-success">Ativar (Admin)</button>
+            </form>
+
+            <!-- PROMOVER a MODERADOR (ativo e tipo='moderador') -->
+            <form class="d-inline" method="post" action="{{ url_for('usuario.promover', usuario_id=u.id) }}">
+              <button class="btn btn-sm btn-outline-primary">Promover a Moderador</button>
+            </form>
+          {% else %}
+            <!-- Desativar usuário -->
+            <form class="d-inline" method="post" action="{{ url_for('usuario.desativar', usuario_id=u.id) }}">
+              <button class="btn btn-sm btn-outline-warning">Desativar</button>
+            </form>
+          {% endif %}
+        </td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="6" class="text-center text-muted py-4">Nenhum usuário encontrado.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="mt-3 d-flex gap-2">
+  <a class="btn btn-secondary" href="{{ url_for('home.painel_admin') }}">Voltar ao painel</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('usuario.novo_usuario') }}">Cadastrar novo usuário</a>
+</div>
+{% endblock %}

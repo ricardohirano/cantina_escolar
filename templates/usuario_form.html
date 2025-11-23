@@ -1,0 +1,40 @@
+{% extends "partials/_base.html" %}
+{% block title %}Cadastro de Usuário — Cantina Escolar{% endblock %}
+
+{% block content %}
+<h1 class="h4 titulo-elegante mb-3">Cadastro de Usuário</h1>
+
+<form method="post" action="">
+  <div class="row g-3">
+    <div class="col-12 col-md-6">
+      <label class="form-label" for="nome">Nome</label>
+      <input class="form-control" id="nome" name="nome" required placeholder="Ex.: Ana Silva">
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label class="form-label" for="email">E-mail</label>
+      <input class="form-control" id="email" name="email" type="email" required placeholder="ana@escola.com">
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label class="form-label" for="confirma_email">Confirmar e-mail</label>
+      <input class="form-control" id="confirma_email" name="confirma_email" type="email" required placeholder="Repita o e-mail">
+    </div>
+
+    <div class="col-12 col-md-6">
+      <label class="form-label" for="senha">Senha</label>
+      <input class="form-control" id="senha" name="senha" type="password" required placeholder="••••••">
+    </div>
+  </div>
+
+  <div class="mt-4 d-flex gap-2">
+    <button class="btn btn-primary">Cadastrar</button>
+    <a class="btn btn-secondary" href="{{ url_for('home.login_admin') }}">Cancelar</a>
+  </div>
+
+  <hr class="my-4">
+  <div class="alert alert-info">
+    <strong>Nota:</strong> A conta criada fica <em>pendente</em> até ativação por um administrador.
+  </div>
+</form>
+{% endblock %}

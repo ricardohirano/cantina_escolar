@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cantina SENAI Registro</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- CSS principal -->
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body class="bg-home">
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-dark sticky-top bg-gradient-vinho shadow-sm">
+    <div class="container-fluid px-4">
+      <a class="navbar-brand fw-bold text-white" href="index.html">Cantina SENAI Registro</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Alternar navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="cardapio.html">Cardápio</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <!-- CARROSSEL -->
+  <section class="w-100 p-0">
+    <div id="carouselCantina" class="carousel slide full-carousel" data-bs-ride="carousel">
+      
+      <!-- Indicadores -->
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselCantina" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselCantina" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselCantina" data-bs-slide-to="2"></button>
+      </div>
+
+      <!-- Slides -->
+      <div class="carousel-inner">
+
+        <div class="carousel-item active">
+          <figure class="slide-hero">
+            <img src="static/img/CarrosselFeijoada.png" alt="Feijoada">
+            <figcaption class="hero-caption">
+              <h2>Feijoada</h2>
+              <p>Todas as quartas e sábados você encontra nossa deliciosa feijoada.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="carousel-item">
+          <figure class="slide-hero">
+            <img src="static/img/Bebidas.png" alt="Bebidas">
+            <figcaption class="hero-caption">
+              <h2>Bebidas</h2>
+              <p>Opções geladas e cheias de sabor para renovar suas energias.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="carousel-item">
+          <figure class="slide-hero">
+            <img src="static/img/salgados.png" alt="Salgados">
+            <figcaption class="hero-caption">
+              <h2>Salgados</h2>
+              <p>Salgados fresquinhos e feitos na hora.</p>
+            </figcaption>
+          </figure>
+        </div>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselCantina" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselCantina" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ================== SEÇÕES EM ZEBRA ================== -->
+  <main class="my-5">
+
+    <!-- BLOCO 1 - DIREITA -->
+    <div class="destaque-faixa right">
+      <div class="destaque-caixa">
+        <div class="row align-items-center g-4">
+
+          <div class="col-md-8 text-center text-md-start">
+            <h3 class="fw-bold">Bem-vindo à nossa cantina!</h3>
+            <p>
+              Aqui você encontra o mesmo cuidado e qualidade do restaurante do centro,
+              com opções práticas e saborosas para o seu dia a dia.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <img src="static/img/cantina.png" class="img-fluid rounded-3 shadow" alt="Cantina">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCO 2 – ESQUERDA -->
+    <div class="destaque-faixa left">
+      <div class="destaque-caixa">
+        <div class="row align-items-center g-4 flex-md-row-reverse">
+
+          <div class="col-md-8 text-center text-md-start">
+            <h3 class="fw-bold">Presença que faz a diferença</h3>
+            <p>
+              Atendemos alunos, professores e colaboradores com excelência e um atendimento
+              que já faz parte da rotina da unidade.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <img src="static/img/senai.jpeg" class="img-fluid rounded-3 shadow" alt="SENAI Registro">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- BLOCO 3 – DIREITA -->
+    <div class="destaque-faixa right">
+      <div class="destaque-caixa">
+        <div class="row align-items-center g-4">
+
+          <div class="col-md-8 text-center text-md-start">
+            <h3 class="fw-bold">Sabor e qualidade em cada prato</h3>
+            <p>
+              Almoço fresquinho todos os dias, com variedade, sabor e qualidade que
+              consolidaram o Espaço Gourmet como referência na cidade.
+            </p>
+          </div>
+
+          <div class="col-md-4 text-center">
+            <img src="static/img/prato.png" class="img-fluid rounded-3 shadow" alt="Prato servido">
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ================= CONTATOS (BOTÕES PERSONALIZADOS) ================= -->
+    <section id="contatos" class="text-center mt-5">
+      <h3 class="titulo mb-2">Contato</h3>
+      <p class="text-white">Entre em contato com nossa equipe:</p>
+
+      <a href="https://wa.me/5513996619948" target="_blank">
+        <img src="static/img/botton_whats_cantina.png" class="btn-whats" alt="WhatsApp Cantina">
+      </a>
+      
+      <a href="https://wa.me/5513996393636" target="_blank">
+        <img src="static/img/botton_whats_matriz.png" class="btn-whats" alt="WhatsApp Matriz">
+      </a>
+    </section>
+
+    <!-- ================= MAPA ================= -->
+    <section id="mapa" class="mt-5 mb-5 text-center">
+      <h3 class="titulo">Localização</h3>
+      <p class="text-white">Conheça nosso espaço no refeitório do Senai Registro</p>
+
+      <div class="mapa-caixa shadow rounded-4 mx-auto">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1029.2806453176693!2d-47.872081317093276!3d-24.53329032157612!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c533cf3b031be9%3A0x67ebf50af7adf1e7!2sEscola%20SENAI%20de%20Registro%20%2F%20SP!5e0!3m2!1spt-BR!2sbr!4v1763828640015!5m2!1spt-BR!2sbr"
+          allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- rodapé -->
+  <footer class="border-top py-3 mt-4 text-center text-muted small">
+    © 2025 Cantina SENAI Registro - Elaborado por Hildo e Ricardo
+  </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "partials/_base.html" %}
+{% block title %}Esqueci minha senha — Cantina Escolar{% endblock %}
+
+{% block content %}
+<h1 class="h4 titulo-elegante mb-3">Esqueci minha senha</h1>
+
+<form method="post" action="">
+  <div class="mb-3">
+    <label class="form-label" for="email">Informe seu e-mail</label>
+    <input class="form-control" id="email" name="email" type="email" required placeholder="seuemail@escola.com">
+  </div>
+  <button class="btn btn-primary">Enviar instruções</button>
+  <a class="btn btn-secondary" href="{{ url_for('home.login_admin') }}">Voltar</a>
+</form>
+
+<hr class="my-4">
+<p class="small text-muted">
+  Para fins didáticos, não enviamos e-mail real. Exibimos uma mensagem genérica no login para não expor se o e-mail existe.
+</p>
+{% endblock %}
