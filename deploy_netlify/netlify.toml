@@ -1,5 +1,10 @@
 [build]
+  base = "deploy_netlify"
   publish = "deploy_netlify"
+  command = ""
+
+[functions]
+  directory = ""
 
 [[redirects]]
   from = "/cardapio"
