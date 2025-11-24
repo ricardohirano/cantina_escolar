@@ -26,16 +26,15 @@ def nome_arquivo_unico(filename):
     return f"{nome_seguro}_{uuid.uuid4().hex}{ext}"
 
 def salvar_foto(foto):
-    """Salva e redimensiona imagem enviada pelo usuário"""
     nome_arquivo = nome_arquivo_unico(foto.filename)
     caminho = os.path.join(current_app.config["UPLOAD_FOLDER"], nome_arquivo)
 
-    # Redimensiona para máximo 800px mantendo proporção
     img = Image.open(foto)
     img.thumbnail((800, 800))
     img.convert("RGB").save(caminho, "JPEG", optimize=True, quality=85)
 
-    return f"/static/foto_prod/{nome_arquivo}"
+    return nome_arquivo
+
 
 @produto_bp.get("/")
 def listar():

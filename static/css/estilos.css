@@ -1,6 +1,6 @@
 /* ======================================================
    CANTINA SENAI REGISTRO — ESTILOS GERAIS (VERSÃO FINAL)
-   Compat: Cardápio estático (categorias acima + lista de itens)
+   Compatível com Flask + Netlify
    ====================================================== */
 
 /* Google Fonts */
@@ -43,34 +43,18 @@ h1,h2,h3,.titulo-elegante{
 .container h1,
 .container h2,
 .container h3 {
-  color: var(--bordo) !important; /* título dentro do container em bordo */
+  color: var(--bordo) !important;
 }
 .titulo-elegante{ font-weight:600; margin-bottom:1rem; }
 
-/* =========================== NAVBAR / HEADER ========================== */
-/* Se usar navbar com gradiente vinho → bordo */
+/* =========================== NAVBAR ========================== */
 .bg-gradient-vinho{
   background:linear-gradient(90deg,var(--vinho) 0%,var(--bordo) 100%) !important;
 }
-/* Header simples da página */
-header{
-  background:rgba(255,255,255,.08);
-  backdrop-filter:blur(8px);
-  box-shadow:var(--sombra);
-  border-bottom:1px solid rgba(255,255,255,.15);
-}
 
-/* contraste e interação */
-.navbar .navbar-brand,
-.navbar .nav-link,
-.navbar .navbar-toggler{ color:#fff !important; }
 .navbar .nav-link:hover{ color:var(--dourado) !important; }
-.navbar-toggler{ border-color:rgba(255,255,255,.5); }
-.navbar-toggler-icon{
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
 
-/* ===================== CONTAINERS & CARDS ==================== */
+/* ===================== CONTAINER ==================== */
 .container{
   background:var(--cinza-100);
   border-radius:var(--raio);
@@ -78,99 +62,123 @@ header{
   box-shadow:var(--sombra);
   margin-top:2rem;
 }
-.card{ border:none; border-radius:var(--raio); overflow:hidden; }
-.card-body{ background:var(--branco); color:var(--preto); }
-.card-produto{ transition:transform .15s ease, box-shadow .15s ease; }
-.card-produto:hover{ transform:translateY(-4px); box-shadow:0 8px 20px rgba(0,0,0,.15); }
 
-/* ======================= LISTA DE PRODUTOS ====================== */
-/* usamos list-group simples para itens + preço à direita */
-#lista-cardapio{
-  background:var(--branco);
-  border:1px solid var(--cinza-300);
-  border-radius:var(--raio);
-  overflow:hidden;
+/* ===================== CARDS DO CARDÁPIO ==================== */
+.card-produto {
+  text-align: center;
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--branco);
+  transition: transform .15s ease, box-shadow .15s ease;
 }
 
-/* linha de produto */
-.list-group-item{
-  border:0;
-  border-bottom:1px solid var(--cinza-300);
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  padding:14px 16px;
-  background:var(--branco);
-}
-.list-group-item:last-child{ border-bottom:0; }
-
-/* nome e infos */
-.list-group-item .fw-semibold{ font-weight:600; color:var(--preto); }
-.list-group-item .text-muted{ color:var(--cinza-600) !important; }
-
-/* preço alinhado à direita, tabular para alinhar casas decimais */
-.preco{
-  font-weight:700;
-  color:var(--preto);
-  font-variant-numeric:tabular-nums;
+.card-produto:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.17);
 }
 
-/* =========================== CATEGORIAS (ACIMA DOS ITENS) ========================= */
-.categoria-titulo{
-  border-left:4px solid var(--bordo);
-  padding-left:.5rem;
-  color:var(--bordo);
-  font-weight:700;
-  margin-top:2rem !important;
-  margin-bottom:.5rem;
+/* WRAPPER PARA CENTRALIZAR A IMAGEM */
+.card-produto .img-wrapper {
+  width: 100%;
+  height: 200px;               
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+  border-bottom: 1px solid var(--cinza-300);
+  padding: 10px 0;
 }
 
-/* =========================== CARDÁPIO (layout antigo - se usar cards) ========================= */
-.card-produto .card-title{ font-weight:600; color:var(--preto); }
-.card-produto .card-text{ color:var(--cinza-600); font-size:.9rem; }
-
-/* =========================== FORMULÁRIOS ====================== */
-.form-estilizada .form-label{ font-weight:600; color:var(--bordo); }
-.form-estilizada .form-control,
-.form-estilizada .form-select{
-  border-radius:var(--raio);
-  border:1px solid var(--cinza-300);
-}
-.form-estilizada .form-control:focus,
-.form-estilizada .form-select:focus{
-  border-color:var(--bordo);
-  box-shadow:0 0 0 .2rem rgba(164,17,70,.2);
+/* IMAGEM DO PRODUTO */
+.card-produto .img-produto {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+  display: block;
 }
 
-/* Botões */
-.btn-primary{ background:var(--bordo); border-color:var(--bordo); font-weight:600; }
-.btn-primary:hover{ background:var(--vinho); border-color:var(--vinho); }
-.btn-outline-secondary{ color:var(--bordo); border-color:var(--bordo); }
-.btn-outline-secondary:hover{ background:var(--bordo); color:var(--branco); }
+/* Nome em bordô */
+.card-produto .card-title {
+  color: #7c0023;
+  font-weight: 600;
+  font-size: 1.15rem;
+  margin-top: 10px;
+}
 
-/* ============================ TABELAS ========================= */
-.table{ background:var(--branco); border-radius:var(--raio); overflow:hidden; }
-.table thead{ background:var(--cinza-100); color:var(--bordo); font-weight:600; }
-.table tbody tr:hover{ background:#fafafa; }
+/* Descrição */
+.card-produto .card-text {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
 
-/* ============================ QR CODE ======================== */
-.qr-section{ text-align:center; margin-top:3rem; }
+/* Preço em bordô */
+.card-produto .preco {
+  color: #7c0023;
+  font-weight: bold;
+  font-size: 1.15rem;
+  margin-top: 6px;
+}
+
+/* Título das categorias */
+.categoria-titulo {
+  border-left: 4px solid var(--bordo);
+  padding-left: .5rem;
+  color: var(--bordo);
+  font-weight: 700;
+  margin-top: 2rem !important;
+  margin-bottom: .8rem;
+  font-family: 'Playfair Display', serif;
+}
+
+/* Navegação de categorias */
+.categoria-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+}
+
+.btn-categoria {
+  font-family: 'Playfair Display';
+  font-weight: 600;
+  padding: .45rem 1.4rem;
+  border-radius: 999px;
+  border: 2px solid var(--bordo);
+  color: var(--bordo);
+  transition: .25s;
+}
+
+.btn-categoria:hover {
+  background: var(--bordo);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* QR */
 .qr-section img{
-  width:150px; height:150px; object-fit:contain;
-  border:3px solid var(--cinza-300); border-radius:var(--raio); box-shadow:var(--sombra);
+  object-fit: contain;
+  border-radius: 10px;
+  border: 2px solid var(--cinza-300);
+}
+/*botao ver mais */ 
+.btn-ver-mais {
+  background: var(--bordo);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.45rem 1.4rem;
+  border-radius: 999px;
+  border: none;
+  margin-top: 10px;
+  transition: .2s;
 }
 
-/* ========================= RODAPÉ ======================== */
-footer{
-  background:var(--cinza-100);
-  border-top:1px solid var(--cinza-300);
-  color:var(--cinza-600);
+.btn-ver-mais:hover {
+  background: var(--vinho);
+  transform: translateY(-2px);
 }
 
-/* ========================= RESPONSIVO ======================== */
+/* Responsivo */
 @media (max-width:768px){
-  .container{ padding:1rem; margin-top:1rem; }
-  .titulo-elegante{ font-size:1.2rem; }
-  .list-group-item{ flex-direction:column; align-items:flex-start; }
-  .preco{ margin-top:.25rem; }
+  .container{ padding: 1rem; margin-top: 1rem; }
 }

@@ -27,6 +27,7 @@ html, body {
   background:linear-gradient(180deg,var(--vinho) 0%,var(--bordo) 100%);
   min-height:100vh;
 }
+
 a { color:var(--branco); text-decoration:none; }
 a:hover { color:var(--dourado); }
 
@@ -41,11 +42,11 @@ h1, h2, h3, .titulo-elegante {
   margin-bottom:1rem;
 }
 
-/* Título branco usado em faixas escuras */
+/* Títulos brancos usados em seções vinho */
 .titulo {
-  font-family:'Playfair Display',Georgia,'Times New Roman',serif;
+  font-family:'Playfair Display';
   letter-spacing:3px;
-  color:var(--bordo);
+  color:var(--branco);
   font-weight:1000;
   margin-bottom:1rem;
 }
@@ -54,11 +55,6 @@ h1, h2, h3, .titulo-elegante {
 .navbar.bg-gradient-vinho {
   background:var(--bordo) !important;
   box-shadow:var(--sombra);
-  border-radius:0 !important;
-}
-.navbar .container,
-.navbar .container-fluid {
-  background:transparent !important;
 }
 .navbar .nav-link {
   color:var(--branco) !important;
@@ -68,28 +64,21 @@ h1, h2, h3, .titulo-elegante {
 .navbar .nav-link:hover {
   color:var(--dourado) !important;
 }
-.navbar-toggler { border-color:rgba(255,255,255,.5); }
-.navbar-toggler-icon {
-  background-image:url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,255,0.9)' stroke-width='2' stroke-linecap='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
-}
-/* Mapa ocupando toda largura disponível */
-/* Caixa do mapa centralizada e proporcional */
+
+/* ===================== MAPA ===================== */
 .mapa-caixa {
-  width: 80%;            /* controla largura equilibrada */
-  max-width: 950px;      /* limite para não ficar gigante */
-  aspect-ratio: 16 / 8;  /* proporção parecida com a imagem que você mandou */
+  width: 80%;
+  max-width: 950px;
+  aspect-ratio: 16/8;
   background: #fff;
   overflow: hidden;
   border-radius: 16px;
 }
-
-/* Iframe ocupando 100% da caixa */
 .mapa-caixa iframe {
   width: 100%;
   height: 100%;
   border: 0;
 }
-
 
 /* ===================== CONTAINERS & CARDS ==================== */
 .container {
@@ -99,6 +88,7 @@ h1, h2, h3, .titulo-elegante {
   box-shadow:var(--sombra);
   margin-top:2rem;
 }
+
 .card { border:none; border-radius:var(--raio); overflow:hidden; }
 .card-body { background:var(--branco); color:var(--preto); }
 .card-produto {
@@ -130,7 +120,7 @@ h1, h2, h3, .titulo-elegante {
 .list-group-item .text-muted { color:var(--cinza-600) !important; }
 .preco {
   font-weight:700;
-  color:var(--preto);
+  color:var(--bordo);
   font-variant-numeric:tabular-nums;
 }
 
@@ -144,7 +134,7 @@ h1, h2, h3, .titulo-elegante {
   margin-bottom:.5rem;
 }
 
-/* miniaturas */
+/* Miniaturas */
 .thumb {
   width:56px; height:56px; object-fit:cover;
   border-radius:8px;
@@ -172,73 +162,146 @@ h1, h2, h3, .titulo-elegante {
 .btn-primary:hover {
   background:var(--vinho); border-color:var(--vinho);
 }
-.btn-outline-secondary {
-  color:var(--bordo); border-color:var(--bordo);
-}
-.btn-outline-secondary:hover {
-  background:var(--bordo); color:var(--branco);
-}
-
-/* ============================ TABELAS ========================= */
-.table {
-  background:var(--branco);
-  border-radius:var(--raio);
-  overflow:hidden;
-}
-.table thead {
-  background:var(--cinza-100);
-  color:var(--bordo);
-  font-weight:600;
-}
-.table tbody tr:hover { background:#fafafa; }
-
-/* ============================ QR CODE ======================== */
-.qr-section {
-  text-align:center; margin-top:3rem;
-}
-.qr-section img {
-  width:150px; height:150px; object-fit:contain;
-  border:3px solid var(--cinza-300);
-  border-radius:var(--raio);
-  box-shadow:var(--sombra);
-}
 
 /* ===================== CARROSSEL FULL WIDTH =================== */
 .full-carousel {
   width:100vw;
   margin-left:50%;
   transform:translateX(-50%);
-  border-radius:0;
 }
 .full-carousel .slide-hero {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3600 / 2025;
-  overflow: hidden;
+  position:relative;
+  width:100%;
+  aspect-ratio:3600/2025;
 }
 .full-carousel .slide-hero img {
-  width:100%; height:100%; object-fit:cover; object-position:center; display:block;
+  width:100%; height:100%; object-fit:cover;
 }
 .full-carousel .slide-hero::after {
-  content:""; position:absolute; inset:0;
+  content:"";
+  position:absolute;
+  inset:0;
   background:linear-gradient(180deg,rgba(0,0,0,.15) 0%, rgba(0,0,0,.45) 100%);
 }
 .full-carousel .hero-caption {
-  position:absolute; bottom:10%; left:50%; transform:translateX(-50%);
-  color:rgba(255,255,255,0.95);
+  position:absolute;
+  bottom:10%;
+  left:50%;
+  transform:translateX(-50%);
+  color:#fff;
   text-align:center;
-  text-shadow:0 2px 10px rgba(0,0,0,.6);
-  z-index:1;
+  z-index:5;
 }
 .full-carousel .hero-caption h2 {
-  font-weight:700;
-  font-size:clamp(1.6rem,3vw,2.2rem);
-  margin-bottom:.3rem;
-  color:rgba(255,255,255,0.95);
+  color: #ffffff !important;
 }
-.full-carousel .hero-caption p {
-  font-size:clamp(1rem,2vw,1.3rem);
-  color:rgba(255,255,255,0.9);
+/* ========================= SEÇÕES DE DESTAQUE ======================== */
+.destaque-faixa {
+  display:flex;
+  padding:2.5rem 0;
+}
+
+.destaque-faixa.right { justify-content:flex-end; }
+.destaque-faixa.left  { justify-content:flex-start; }
+
+.destaque-caixa {
+  max-width:1100px;
+  width:100%;
+  margin-inline:2.5rem;
+  background:var(--branco);
+  border-radius:24px;
+  padding:2.5rem 3rem;
+  color:var(--bordo);
+  box-shadow:var(--sombra);
+}
+
+.destaque-caixa h3 {
+  color:var(--bordo);
+}
+.destaque-caixa p {
+  color:var(--bordo);
+}
+
+/* Imagens */
+.destaque-caixa img {
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.destaque-caixa img:hover {
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 12px 28px rgba(0,0,0,0.35);
+}
+
+/* ============================================
+   NOVO BLOCO BRANCO (CONTATO + LOCALIZAÇÃO)
+   ============================================ */
+.container-bloco {
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: auto;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+}
+
+/* Títulos */
+.titulo-secao {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 10px;
+    color: var(--bordo);
+}
+
+.subtitulo-secao {
+    text-align: center;
+    color: #555;
+    margin-bottom: 25px;
+    font-size: 1.15rem;
+}
+
+/* Botões WhatsApp */
+.whats-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.whats-btn img {
+    width: 350px;
+    max-width: 90%;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.whats-btn img:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* Mapa novo (sem bordas extras internas) */
+.mapa-caixa-nova {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 20px;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+.mapa-caixa-nova iframe {
+    width: 100%;
+    height: 420px;
+    border: 0;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .titulo-secao { font-size: 1.9rem; }
+    .subtitulo-secao { font-size: 1rem; }
+    .whats-container { gap: 18px; }
+    .whats-btn img { width: 260px; }
+    .mapa-caixa-nova iframe { height: 300px; }
 }
 
 /* ========================= RODAPÉ ======================== */
@@ -252,217 +315,5 @@ footer {
 @media (max-width:768px) {
   .container { padding:1rem; margin-top:1rem; }
   .titulo-elegante { font-size:1.2rem; }
-  .list-group-item { flex-direction:column; align-items:flex-start; }
-  .preco { margin-top:.25rem; }
   .full-carousel .slide-hero { aspect-ratio:16/10; }
-}
-
-/* Box estilizado como a navbar */
-.featurette-box {
-  background: linear-gradient(135deg, #6f1d24 0%, #8b1e2d 100%);
-  border-radius: 20px;
-  padding: 40px 30px;
-}
-
-/* Imagem da seção */
-.featurette-img {
-  max-width: 90%;
-  border-radius: 12px;
-  object-fit: cover;
-}
-
-/* Boxes antigas (se ainda forem usadas em alguma página) */
-.destaque-box {
-  background: #8a2a37;
-  color: white;
-  border-radius: 20px;
-}
-.destaque-box img {
-  max-height: 160px;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* NOVO: fundo para os blocos full width do index */
-.bg-destaque {
-  background-color:#87303d;
-  color:#fff;
-}
-/* ---- SEÇÃO DE DESTAQUE (3 blocos) ---- */
-
-/* Caixa grande igual à navbar */
-.destaque-antiga {
-    background: var(--bordo);   /* mesma cor da navbar */
-    border-radius: 22px;
-    padding: 35px;
-    color: var(--branco);
-    max-width: 900px;          /* ocupa ~2/3 da tela */
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Títulos dentro dos blocos */
-.destaque-antiga h3 {
-    color: var(--branco) !important;
-    font-weight: 700;
-}
-
-/* Texto */
-.destaque-antiga p {
-    color: #f2f2f2;
-    font-size: 1rem;
-}
-
-/* Imagens dos blocos */
-.destaque-antiga img {
-    width: 100%;
-    max-width: 240px;
-    border-radius: 12px;
-    object-fit: cover;
-    max-height: 170px;
-}
-
-/* Faixa de fundo dos destaques (ocupa toda a largura) */
-/* Faixa externa dos destaques (fora do container branco) */
-.destaque-faixa {
-  display: flex;
-  padding: 2.5rem 0;
-}
-
-/* alinhamentos possíveis */
-.destaque-faixa.left {
-  justify-content: flex-start;
-}
-
-.destaque-faixa.center {
-  justify-content: center;
-}
-
-.destaque-faixa.right {
-  justify-content: flex-end;   /* JOGA A CAIXA PRA DIREITA */
-}
-
-/* Caixa colorida */
-.destaque-caixa {
-  max-width: 1100px;
-  width: 100%;
-  margin-inline: 2.5rem;       /* respiro das bordas */
-  background: var(--branco);
-  border-radius: 24px;
-  padding: 2.5rem 3rem;
-  color: var(--bordo);
-  box-shadow: var(--sombra);
-}
-
-.destaque-caixa h3 {
-  color: var(--bordo);
-  margin-bottom: 0.75rem;
-}
-/* Imagens dos blocos (efeito de profundidade no hover) */
-.destaque-caixa img {
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  transform-origin: center;
-  will-change: transform, box-shadow;
-}
-
-/* Ao passar o mouse */
-.destaque-caixa img:hover {
-  transform: translateY(-6px) scale(1.03);       /* sobe um pouco e aumenta */
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);   /* sombra mais forte */
-}
-.bloco-direita {
-    max-width: 900px;        /* largura do bloco */
-    margin-left: auto;       /* empurra o bloco para a direita */
-    margin-right: 40px;      /* distância do canto direito */
-    background: var(--bordo);
-    border-radius: 20px;
-    padding: 40px 30px;
-    color: white;
-}
-
-/* Caixa do mapa (branca, centralizada, não ocupa 100%) */
-.mapa-caixa {
-  max-width: 1100px;
-  width: 90%;
-  margin: 0 auto;
-  border-radius: 24px;
-  overflow: hidden;   /* corta qualquer sobra interna */
-  background: #ffffff;
-  padding: 0;         /* garante que não tem espaço extra dentro */
-}
-
-/* Iframe ocupando 100% da caixa */
-.mapa-caixa iframe {
-  display: block;     /* remove espaço de linha embaixo do iframe */
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-/* ============================================
-   CONTRASTE MELHOR EM FUNDOS VINHO (MOBILE/PC)
-   ============================================ */
-
-/* Blocos de destaque (Bem-vindo, Presença que faz a diferença, etc.) */
-.destaque-caixa h3,
-.destaque-caixa p {
-  color: #ffffff !important;
-}
-
-/* Seções de Contato e Localização */
-#contatos h3,
-#contatos p,
-#mapa h3,
-#mapa p {
-  color: #ffffff !important;
-}
-/* ===================================================================
-   CORREÇÃO DE CONTRASTE EM FUNDO VINHO – TITULOS E PARÁGRAFOS
-   =================================================================== */
-
-/* Qualquer título, texto ou parágrafo dentro de blocos vinho */
-.bg-home h1,
-.bg-home h2,
-.bg-home h3,
-.bg-home h4,
-.bg-home h5,
-.bg-home p,
-.bg-home span,
-.bg-home small {
-    color: #ffffff !important;
-}
-
-/* Títulos das seções específicas */
-#mapa h3,
-#mapa p {
-    color: #ffffff !important;
-}
-
-#contatos h3,
-#contatos p {
-    color: #ffffff !important;
-}
-
-/* Seções de destaque (faixas vinho) */
-.destaque-faixa h3,
-.destaque-faixa p {
-    color: #ffffff !important;
-}
-
-/* Títulos personalizados */
-.titulo,
-.titulo-elegante {
-    color: #ffffff !important;
-}
-/* Responsivo */
-@media (max-width: 768px) {
-    .destaque-antiga {
-        text-align: center;
-        padding: 25px;
-    }
-
-    .destaque-antiga img {
-        margin-top: 18px;
-        max-width: 200px;
-        max-height: 140px;
-    }
 }

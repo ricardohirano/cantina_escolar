@@ -2,43 +2,118 @@
 {% block title %}Cardápio — Cantina Escolar{% endblock %}
 
 {% block content %}
-<div class="container">
-  <h1 class="h4 mb-3 text-center titulo-elegante">Cardápio da Cantina</h1>
+  <h1 class="titulo-elegante text-center mb-3">Cardápio da Cantina</h1>
+  <p class="text-muted text-center mb-4">
+    Confira as opções disponíveis hoje.
+  </p>
 
-  {% for categoria, lista in grupos.items() %}
-    <h5 class="mt-4 categoria-titulo">{{ categoria }}</h5>
-
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 g-3">
-      {% for p in lista %}
-      <div class="col">
-        <div class="card h-100 shadow-sm card-produto">
-          {% if p.foto_url %}
-            <img src="{{ p.foto_url }}"
-                 class="card-img-top" alt="{{ p.nome }}"
-                 style="height:180px; object-fit:cover;">
-          {% endif %}
-          <div class="card-body">
-            <h6 class="card-title mb-1">{{ p.nome }}</h6>
-            {% if p.descricao %}
-              <p class="card-text small text-muted">{{ p.descricao }}</p>
-            {% endif %}
-            <p class="fw-semibold mb-0">R$ {{ '%.2f'|format(p.preco or 0) }}</p>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  {% endfor %}
-
-  {% if qr_code %}
-  <div class="text-center mt-5">
-    <div class="small text-muted mb-2">Aponte a câmera do celular</div>
-    <img src="{{ qr_code }}"
-         alt="QR Code do Cardápio"
-         class="img-thumbnail shadow-sm"
-         style="width:150px; height:150px; object-fit:contain;">
-    <p class="mt-2 small text-muted">Acesse este cardápio online</p>
+  <!-- Navegação por categorias (atalhos) -->
+  <div class="categoria-nav text-center mb-4">
+    <a href="#" class="btn-categoria" data-cat="Bebidas">Bebidas</a>
+    <a href="#" class="btn-categoria" data-cat="Sobremesas">Sobremesas</a>
+    <a href="#" class="btn-categoria" data-cat="Salgados">Salgados</a>
+    <a href="#" class="btn-categoria" data-cat="Refeicoes">Refeições</a>
+    <a href="#" class="btn-categoria" data-cat="Sorvetes">Sorvetes</a>
+    <a href="#" class="btn-categoria" data-cat="Outros">Outros</a>
+    <a href="#" class="btn-categoria" data-cat="Todas">Todas</a>
   </div>
-  {% endif %}
-</div>
+
+  <!-- BLOCO DE CATEGORIAS + CARDS -->
+  <section id="secao-cardapio" class="mt-3">
+    {% for categoria, lista in grupos.items() %}
+      <h5 id="cat-{{ categoria|lower }}" class="categoria-titulo">
+        {{ categoria }}
+      </h5>
+
+      <div class="row row-cols-2 row-cols-md-4 g-3 categoria-bloco"
+           data-categoria="{{ categoria }}">
+        {% for p in lista %}
+          <div class="col{% if loop.index > 4 %} extra-produto d-none{% endif %}">
+            <div class="card-produto shadow-sm h-100">
+
+              {% if p.foto_url %}
+                <div class="img-wrapper">
+                  <img src="{{ url_for('static', filename='foto_prod/' ~ p.foto_url) }}"
+                       class="img-produto"
+                       alt="{{ p.nome }}">
+                </div>
+              {% endif %}
+
+              <div class="card-body">
+                <h6 class="card-title">{{ p.nome }}</h6>
+
+                {% if p.descricao %}
+                  <p class="card-text">{{ p.descricao }}</p>
+                {% endif %}
+
+                <p class="preco">
+                  R$ {{ '%.2f'|format(p.preco or 0) }}
+                </p>
+              </div>
+
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      {% if lista|length > 4 %}
+        <div class="text-center mt-2">
+          <button class="btn-ver-mais"
+                  data-categoria="{{ categoria }}"
+                  data-aberto="0">
+            Ver mais
+          </button>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </section>
+
+  <!-- QR Code fixo (igual ao do Netlify, se quiser trocar o arquivo depois) -->
+  <section class="qr-section text-center mt-4">
+    <p class="text-muted small mb-2">Aponte a câmera do celular</p>
+    <img src="{{ url_for('static', filename='img/qrcode.png') }}"
+         alt="QR Code do Cardápio"
+         width="150" height="150">
+  </section>
+
+  <script>
+    // Botão Ver mais / Ver menos no cardápio público (Flask)
+    document.querySelectorAll(".btn-ver-mais").forEach((botao) => {
+      botao.addEventListener("click", () => {
+        const categoria = botao.dataset.categoria;
+        const bloco = document.querySelector(
+          `.categoria-bloco[data-categoria="${categoria}"]`
+        );
+        if (!bloco) return;
+
+        const extras = bloco.querySelectorAll(".extra-produto");
+        const aberto = botao.dataset.aberto === "1";
+
+        extras.forEach((card) => {
+          card.classList.toggle("d-none", aberto); // se aberto, esconde; se fechado, mostra
+        });
+
+        if (aberto) {
+          botao.textContent = "Ver mais";
+          botao.dataset.aberto = "0";
+        } else {
+          botao.textContent = "Ver menos";
+          botao.dataset.aberto = "1";
+        }
+      });
+    });
+
+    // Atalhos de categoria (rolagem suave)
+    document.querySelectorAll(".btn-categoria").forEach((btn) => {
+      btn.addEventListener("click", (ev) => {
+        ev.preventDefault();
+        const texto = btn.textContent.trim();
+        const id = "cat-" + texto.toLowerCase();
+        const alvo = document.getElementById(id);
+        if (alvo) {
+          alvo.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      });
+    });
+  </script>
 {% endblock %}

@@ -1,125 +1,125 @@
 /* =========================
-   ESTILOS ESPECÍFICOS DO CARDÁPIO (CARDS)
+   ESTILO DO CARDÁPIO
    ========================= */
 
-/* Título da categoria */
-.categoria-titulo {
-  border-left: 4px solid var(--bordo);
-  padding-left: .5rem;
-  color: var(--bordo);
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  font-family: 'Playfair Display', Georgia, serif;
+:root{
+  --vinho:#5A0004;
+  --bordo:#A41146;
+  --cinza-300:#E6E6E6;
+  --cinza-100:#F7F7F7;
 }
 
-/* CARD GERAL */
-.product-card .card {
-  text-align: center;              /* Centraliza TODO o conteúdo */
-  border-radius: 16px;
+/* WRAPPER DO CARD */
+.card-produto {
+  text-align: center;
+  border-radius: 14px;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: white;
+  transition: .2s ease-in-out;
 }
 
-.product-card .card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+.card-produto:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.20);
 }
 
-/* IMAGEM DO PRODUTO – sempre 100% da largura */
-.product-card .card-img-top {
+/* ÁREA DA IMAGEM */
+.img-wrapper {
   width: 100%;
-  height: auto;                   /* Mantém proporção original */
-  object-fit: contain;            /* Mantém imagem inteira */
-  background: var(--cinza-100);
+  height: 200px;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border-bottom: 1px solid var(--cinza-300);
 }
 
+/* IMAGEM DO PRODUTO */
+.img-produto {
+  max-width: 95%;
+  max-height: 95%;
+  object-fit: contain;
+}
+
 /* NOME */
-.product-card .card-title {
-  margin-top: 0.75rem;
-  font-family: 'Playfair Display', Georgia, serif;
-  font-weight: 700;
-  font-size: 1.1rem;
+.card-produto .card-title {
   color: var(--bordo);
-  text-align: center;
+  font-weight: 700;
+  font-size: 1.15rem;
 }
 
 /* DESCRIÇÃO */
-.product-card .card-text {
-  text-align: center;
-  font-size: 0.9rem;
-  color: var(--cinza-600);
+.card-produto .card-text {
+  font-size: .9rem;
+  color: #666;
 }
 
 /* PREÇO */
-.product-card .preco-card {
-  font-family: 'Playfair Display', Georgia, serif;
+.card-produto .preco {
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--bordo);
-  text-align: center;
-  padding: 0.5rem 0;
-  font-variant-numeric: tabular-nums;
-  background: #fafafa;
-  border-top: 1px solid var(--cinza-300);
+  margin-bottom: 5px;
 }
 
-/* Espaçamento entre blocos de categoria */
-#secao-cardapio {
-  margin-top: 1rem;
+/* TÍTULO DA CATEGORIA */
+.categoria-titulo {
+  font-family: 'Playfair Display', serif;
+  border-left: 4px solid var(--bordo);
+  padding-left: 8px;
+  margin-top: 25px;
+  margin-bottom: 10px;
+  color: var(--bordo);
+  font-weight: 700;
 }
 
-/* Botão Ver Mais / Ver Menos */
+/* NAVEGAÇÃO DAS CATEGORIAS */
+.categoria-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.btn-categoria {
+  font-family: 'Playfair Display';
+  border: 2px solid var(--bordo);
+  color: var(--bordo);
+  padding: 0.45rem 1.4rem;
+  border-radius: 999px;
+  transition: .25s;
+}
+
+.btn-categoria:hover {
+  background: var(--bordo);
+  color: white;
+}
 .btn-ver-mais {
   background: var(--bordo);
-  border-color: var(--bordo);
   color: #fff;
   font-weight: 600;
-  padding: 0.45rem 1.8rem;
+  padding: 0.45rem 1.4rem;
   border-radius: 999px;
-  font-size: 0.95rem;
-  margin-top: 0.8rem;
+  border: none;
+  margin-top: 10px;
+  transition: .2s;
 }
 
 .btn-ver-mais:hover {
   background: var(--vinho);
-  border-color: var(--vinho);
+  transform: translateY(-2px);
 }
 
-/* Responsivo */
+/* QR CODE */
+.qr-section img {
+  border-radius: 10px;
+  border: 2px solid var(--cinza-300);
+  object-fit: contain;
+}
+
+/* MOBILE */
 @media (max-width: 768px) {
-  .product-card .card-img-top {
-    padding: 0.75rem;
+  .img-wrapper {
+    height: 150px;
   }
-}
-/* Navegação de categorias */
-.categoria-nav {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.6rem;
-}
-
-/* Botões com fonte Playfair Display e borda */
-.btn-categoria {
-  font-family: 'Playfair Display', Georgia, serif; /* igual ao h1 */
-  font-weight: 600;
-  padding: 0.45rem 1.4rem;
-  border-radius: 999px;
-  font-size: 1rem;
-
-  background: transparent;
-  color: var(--bordo);
-  border: 2px solid var(--bordo);
-
-  text-decoration: none;
-  transition: 0.25s ease-in-out;
-}
-
-/* Hover */
-.btn-categoria:hover {
-  background: var(--bordo);
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 5px 18px rgba(0,0,0,0.25);
 }

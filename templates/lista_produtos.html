@@ -32,9 +32,15 @@
         <tr>
           <td>
             {% if p.foto_url %}
-              <img src="{{ p.foto_url }}" alt="{{ p.nome }}" style="width:48px;height:48px;object-fit:cover;border-radius:8px;">
+              <img src="{{ url_for('static', filename='foto_prod/' ~ p.foto_url) }}"
+                  alt="{{ p.nome }}"
+                  class="img-thumbnail"
+                  style="width: 60px; height: 60px; object-fit: cover;">
+            {% else %}
+              <span class="text-muted small">Sem foto</span>
             {% endif %}
           </td>
+
           <td>{{ p.nome }}</td>
           <td>{{ p.categoria }}</td>
           <td>R$ {{ '%.2f'|format(p.preco) }}</td>
