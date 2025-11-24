@@ -1,0 +1,2 @@
+# Netlify: site estático, sem dependências Python.
+# Mantido vazio de propósito.
